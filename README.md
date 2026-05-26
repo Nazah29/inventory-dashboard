@@ -44,7 +44,7 @@
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/Nazah29/stockos.git
+git clone https://github.com/Nazah29/inventory-dashboard.git
 cd stockos
 
 # 2. Instalar dependencias
