@@ -96,7 +96,7 @@ export default function ProductModal({ product, onClose, onSave }: ProductModalP
               <label className={labelStyle}>Stock</label>
               <input 
                 type="number" 
-                {...register("stock")} 
+                {...register("stock", { valueAsNumber: true })} 
                 className={inputStyle} 
               />
               {errors.stock && <p className={errorStyle}>{errors.stock.message}</p>}
@@ -108,7 +108,7 @@ export default function ProductModal({ product, onClose, onSave }: ProductModalP
               <input 
                 type="number" 
                 step="0.01"
-                {...register("price")} 
+                {...register("price", { valueAsNumber: true })} 
                 className={inputStyle} 
               />
               {errors.price && <p className={errorStyle}>{errors.price.message}</p>}
