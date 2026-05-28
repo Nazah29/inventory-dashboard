@@ -36,7 +36,7 @@ const INITIAL_ACTIVITY = [
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 const fmt = (n) => `S/ ${n.toLocaleString("es-PE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-export default function InventoryDashboard() {
+export default function App() {
   const [products, setProducts] = useState(INITIAL_PRODUCTS);
   const [activities, setActivities] = useState(INITIAL_ACTIVITY);
   const [view, setView] = useState("pos"); // Vista inicial
@@ -50,7 +50,7 @@ export default function InventoryDashboard() {
     setTimeout(() => setToast(null), 3000);
   };
 
-  // Cálculos de Resumen
+  // Resumen de Estadísticas
   const totalValue = products.reduce((s, p) => s + p.price * p.stock, 0);
   const lowStock = products.filter(p => p.status === "low").length;
   const outStock = products.filter(p => p.status === "out").length;
@@ -171,7 +171,6 @@ export default function InventoryDashboard() {
 
   return (
     <>
-      {/* Estilos globales rápidos de animación */}
       <style>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fade-in { animation: fadeIn 0.3s ease both; }
