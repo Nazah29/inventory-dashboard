@@ -19,12 +19,12 @@ export default function Sidebar({ currentView, onViewChange, lowStockCount, outS
   ];
 
   return (
-    <aside className="w-56 bg-white/[0.025] border-r border-white/[0.06] flex flex-col p-7 shrink-0 h-screen">
-      <div className="px-2 pb-8 border-b border-white/[0.06]">
-        <div className="font-syne text-xl font-extrabold text-slate-100 tracking-tight">
-          <span className="text-indigo-500">■</span> StockOS
+    <aside className="w-56 bg-[#070b13] border-r border-slate-800/80 flex flex-col p-7 shrink-0 h-screen">
+      <div className="px-2 pb-8 border-b border-slate-800/80">
+        <div className="font-sans text-xl font-extrabold text-white tracking-tight">
+          <span className="text-blue-500 mr-1.5">■</span>StockOS
         </div>
-        <div className="text-[11px] text-slate-500 mt-1">Sistema de inventario</div>
+        <div className="text-[11px] text-slate-500 mt-1.5 font-semibold">Sistema de inventario</div>
       </div>
       
       <nav className="mt-6 flex-1 flex flex-col gap-1">
@@ -32,16 +32,16 @@ export default function Sidebar({ currentView, onViewChange, lowStockCount, outS
           <button
             key={item.label}
             onClick={() => onViewChange(item.view)}
-            className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-left w-full text-sm transition-all duration-200 relative ${
+            className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-left w-full text-sm transition-all duration-200 ${
               item.active
-                ? "bg-indigo-500/15 text-indigo-400 font-semibold"
+                ? "bg-white/10 text-white font-bold"
                 : "bg-transparent text-slate-400 hover:bg-white/5 hover:text-slate-200"
             }`}
           >
             <span className="text-base">{item.icon}</span>
             {item.label}
             {item.label === "Inventario" && totalAlerts > 0 ? (
-              <span className="ml-auto bg-red-500 text-white rounded-full text-[10px] px-1.5 py-0.5 font-bold">
+              <span className="ml-auto bg-blue-600 text-white rounded-full text-[10px] px-1.5 py-0.5 font-bold">
                 {totalAlerts}
               </span>
             ) : null}
@@ -49,13 +49,13 @@ export default function Sidebar({ currentView, onViewChange, lowStockCount, outS
         ))}
       </nav>
 
-      <div className="border-t border-white/[0.06] pt-4">
+      <div className="border-t border-slate-800/80 pt-4">
         <div className="flex items-center gap-2.5 px-3 py-2.5">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-xs font-bold text-white">
+          <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs font-bold text-white">
             FN
           </div>
           <div>
-            <div className="text-xs text-slate-200 font-semibold">Franco N.</div>
+            <div className="text-xs text-slate-200 font-bold">Franco N.</div>
             <div className="text-[11px] text-slate-500">Admin</div>
           </div>
         </div>

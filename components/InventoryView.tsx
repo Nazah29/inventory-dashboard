@@ -48,7 +48,7 @@ export default function InventoryView({ products, onEdit, onDelete }: InventoryV
               setPage(1);
             }}
             placeholder="Buscar por nombre o SKU..."
-            className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-slate-100 text-sm outline-none focus:border-indigo-500 transition-colors"
+            className="w-full bg-[#131b2e] border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-slate-200 text-sm outline-none focus:border-blue-550 focus:ring-1 focus:ring-blue-550 transition-colors shadow-sm"
           />
         </div>
         <select
@@ -57,10 +57,10 @@ export default function InventoryView({ products, onEdit, onDelete }: InventoryV
             setCategory(e.target.value);
             setPage(1);
           }}
-          className="bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-slate-100 text-sm outline-none cursor-pointer focus:border-indigo-500 transition-colors"
+          className="bg-[#131b2e] border border-slate-800 rounded-xl px-4 py-2.5 text-slate-200 text-sm outline-none cursor-pointer focus:border-blue-550 transition-colors shadow-sm"
         >
           {CATEGORIES.map((c) => (
-            <option key={c} value={c} className="bg-slate-950">
+            <option key={c} value={c} className="bg-[#131b2e]">
               {c}
             </option>
           ))}
@@ -68,11 +68,11 @@ export default function InventoryView({ products, onEdit, onDelete }: InventoryV
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-slate-100 text-sm outline-none cursor-pointer focus:border-indigo-500 transition-colors"
+          className="bg-[#131b2e] border border-slate-800 rounded-xl px-4 py-2.5 text-slate-200 text-sm outline-none cursor-pointer focus:border-blue-550 transition-colors shadow-sm"
         >
-          <option value="name" className="bg-slate-950">Ordenar: Nombre</option>
-          <option value="price" className="bg-slate-950">Ordenar: Precio</option>
-          <option value="stock" className="bg-slate-950">Ordenar: Stock</option>
+          <option value="name" className="bg-[#131b2e]">Ordenar: Nombre</option>
+          <option value="price" className="bg-[#131b2e]">Ordenar: Precio</option>
+          <option value="stock" className="bg-[#131b2e]">Ordenar: Stock</option>
         </select>
       </div>
 
@@ -82,7 +82,7 @@ export default function InventoryView({ products, onEdit, onDelete }: InventoryV
       {/* Controles de paginación */}
       {totalPages > 1 && (
         <div className="flex justify-between items-center px-4 py-3.5 mt-3">
-          <span className="text-xs text-slate-500 font-dmsans">
+          <span className="text-xs text-slate-400 font-sans font-semibold">
             Mostrando {(page - 1) * PER_PAGE + 1}–{Math.min(page * PER_PAGE, filtered.length)} de {filtered.length}
           </span>
           <div className="flex gap-1.5">
@@ -92,8 +92,8 @@ export default function InventoryView({ products, onEdit, onDelete }: InventoryV
                 onClick={() => setPage(n)}
                 className={`w-7 h-7 rounded-lg border-none cursor-pointer text-xs font-bold transition-colors ${
                   n === page
-                    ? "bg-indigo-500 text-white font-bold"
-                    : "bg-white/5 text-slate-400 hover:bg-indigo-500/20"
+                    ? "bg-blue-600 text-white font-bold"
+                    : "bg-slate-800 text-slate-400 hover:bg-slate-700"
                 }`}
               >
                 {n}

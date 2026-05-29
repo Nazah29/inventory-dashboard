@@ -177,7 +177,7 @@ export default function App() {
         @keyframes toastIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
       `}</style>
 
-      <div className="flex h-screen bg-[#060b14] text-slate-100 font-sans overflow-hidden">
+      <div className="flex h-screen bg-[#0b0f19] text-slate-100 font-sans overflow-hidden">
         
         {/* ── Sidebar Modular ── */}
         <Sidebar 
@@ -193,15 +193,15 @@ export default function App() {
           {/* Cabecera superior común */}
           <div className="flex justify-between items-center mb-8 animate-fade-in">
             <div>
-              <h1 className="font-syne text-3xl font-extrabold tracking-tight text-slate-100">
+              <h1 className="font-sans text-3xl font-extrabold tracking-tight text-white">
                 {view === "pos" ? "Punto de Venta (POS)" : view === "table" ? "Inventario" : view === "reports" ? "Reportes" : "Dashboard"}
               </h1>
-              <p className="text-slate-500 text-sm mt-1">
+              <p className="text-slate-400 text-sm mt-1 font-bold">
                 {view === "pos" ? "Registra ventas rápidas y deduce stock al instante" : `${products.length} productos registrados · Actualizado ahora`}
               </p>
             </div>
             <button onClick={() => setModal("new")}
-              className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-bold text-sm px-5 py-3 rounded-xl shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/20 active:scale-95 transition-all flex items-center gap-2">
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-5 py-3 rounded-xl shadow-md transition-all flex items-center gap-2 active:scale-95">
               ＋ Nuevo producto
             </button>
           </div>
@@ -269,14 +269,14 @@ export default function App() {
       )}
 
       {deleteConfirm && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 backdrop-blur-sm">
-          <div className="bg-slate-900 border border-white/10 rounded-2xl p-8 w-full max-w-sm text-center shadow-2xl">
+        <div className="fixed inset-0 bg-slate-950/70 flex items-center justify-center z-50 backdrop-blur-md">
+          <div className="bg-[#131b2e] border border-slate-800/80 rounded-2xl p-8 w-full max-w-sm text-center shadow-2xl">
             <div className="text-4xl mb-4">🗑️</div>
-            <h3 className="font-syne text-lg text-slate-100 mb-2 font-bold">¿Eliminar producto?</h3>
-            <p className="text-slate-400 text-sm mb-6">"{deleteConfirm.name}" será removido permanentemente del inventario.</p>
+            <h3 className="font-sans text-lg text-white mb-2 font-extrabold">¿Eliminar producto?</h3>
+            <p className="text-slate-400 font-semibold text-sm mb-6">"{deleteConfirm.name}" será removido permanentemente del inventario.</p>
             <div className="flex gap-2.5 justify-center">
-              <button onClick={() => setDeleteConfirm(null)} className="px-5 py-2.5 rounded-lg text-xs font-semibold text-slate-400 bg-white/5 border border-white/10 hover:bg-white/10">Cancelar</button>
-              <button onClick={() => handleDelete(deleteConfirm.id)} className="px-5 py-2.5 rounded-lg text-xs font-bold text-white bg-red-500 hover:bg-red-600">Eliminar</button>
+              <button onClick={() => setDeleteConfirm(null)} className="px-5 py-2.5 rounded-lg text-xs font-bold text-slate-350 bg-slate-800 hover:bg-slate-700/80 border border-slate-700/30 transition-colors">Cancelar</button>
+              <button onClick={() => handleDelete(deleteConfirm.id)} className="px-5 py-2.5 rounded-lg text-xs font-bold text-white bg-red-650 hover:bg-red-700 transition-colors">Eliminar</button>
             </div>
           </div>
         </div>
@@ -284,7 +284,7 @@ export default function App() {
 
       {/* Notificaciones Toast */}
       {toast && (
-        <div style={{ animation: "toastIn 0.3s ease" }} className={`fixed bottom-7 right-7 px-5 py-3 rounded-xl text-sm font-semibold text-white shadow-2xl z-50 ${toast.type === 'warn' ? 'bg-red-500 shadow-red-500/10' : 'bg-emerald-500 shadow-emerald-500/10'}`}>
+        <div style={{ animation: "toastIn 0.3s ease" }} className={`fixed bottom-7 right-7 px-5 py-3 rounded-xl text-sm font-semibold text-white shadow-xl z-50 ${toast.type === 'warn' ? 'bg-red-600 shadow-md' : 'bg-emerald-600 shadow-md'}`}>
           {toast.msg}
         </div>
       )}

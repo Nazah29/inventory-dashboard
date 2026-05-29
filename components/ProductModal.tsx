@@ -34,20 +34,20 @@ export default function ProductModal({ product, onClose, onSave }: ProductModalP
     await onSave(data)
   }
 
-  // Estilos extraídos para limpiar el JSX (idealmente migrarás esto a Tailwind)
-  const inputStyle = "w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-slate-100 text-sm outline-none focus:border-indigo-500 transition-colors";
-  const labelStyle = "block text-xs text-slate-400 mb-1.5 uppercase tracking-wide";
-  const errorStyle = "text-red-400 text-xs mt-1";
+  // Estilos extraídos para limpiar el JSX
+  const inputStyle = "w-full bg-[#0b0f19] border border-slate-800 rounded-lg px-4 py-2 text-slate-200 text-sm outline-none focus:border-blue-550 transition-colors shadow-sm";
+  const labelStyle = "block text-[10px] text-slate-400 mb-1.5 uppercase font-bold tracking-wider";
+  const errorStyle = "text-red-400 text-xs mt-1 font-bold";
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 backdrop-blur-sm">
-      <div className="bg-slate-900 border border-white/10 rounded-2xl p-8 w-full max-w-md shadow-2xl">
+    <div className="fixed inset-0 bg-slate-950/50 flex items-center justify-center z-50 backdrop-blur-md">
+      <div className="bg-[#131b2e] border border-slate-800/80 rounded-2xl p-8 w-full max-w-md shadow-2xl">
         
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold text-slate-100 font-syne">
+          <h2 className="text-xl font-bold text-slate-100">
             {product ? "Editar producto" : "Nuevo producto"}
           </h2>
-          <button onClick={onClose} className="text-slate-400 hover:bg-white/10 p-1 rounded-md">
+          <button onClick={onClose} className="text-slate-400 hover:bg-slate-800 hover:text-slate-200 p-1.5 rounded-md transition-colors">
             ✕
           </button>
         </div>
@@ -72,7 +72,7 @@ export default function ProductModal({ product, onClose, onSave }: ProductModalP
               <label className={labelStyle}>Categoría</label>
               <select {...register("category")} className={inputStyle}>
                 {CATEGORIES.map(c => (
-                  <option key={c} value={c}>{c}</option>
+                  <option key={c} value={c} className="bg-[#0b0f19] text-slate-200">{c}</option>
                 ))}
               </select>
               {errors.category && <p className={errorStyle}>{errors.category.message}</p>}
@@ -120,14 +120,14 @@ export default function ProductModal({ product, onClose, onSave }: ProductModalP
             <button 
               type="button" 
               onClick={onClose} 
-              className="px-5 py-2.5 rounded-lg text-sm text-slate-400 bg-white/5 border border-white/10 hover:bg-white/10"
+              className="px-5 py-2.5 rounded-lg text-sm font-semibold text-slate-350 bg-slate-800 hover:bg-slate-700/80 border border-slate-700/30 transition-colors"
             >
               Cancelar
             </button>
             <button 
               type="submit" 
               disabled={isSubmitting}
-              className="px-6 py-2.5 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 disabled:opacity-50"
+              className="px-6 py-2.5 rounded-lg text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 transition-colors shadow-sm"
             >
               {isSubmitting ? "Guardando..." : (product ? "Guardar cambios" : "Crear producto")}
             </button>

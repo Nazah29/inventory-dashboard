@@ -8,8 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        syne: ["Syne", "sans-serif"],
-        dmsans: ["DM Sans", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
       }
     },
   },
